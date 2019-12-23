@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build --public-url ./dist ./src/index.html",
     "dev": "parcel src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock yarn run dev",
     "format": "prettier \"./src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "start": "yarn run build && babel-node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
@@ -32,6 +35,7 @@
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "express": "^4.17.1",
     "react": "15.x || 16.x || 16.4.0-alpha.0911da3",
     "react-dom": "15.x || 16.x || 16.4.0-alpha.0911da3"
   },
