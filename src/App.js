@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { render } from "react-dom";
+import { Provider } from "react-redux";
 import { Link, Router } from "@reach/router";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
-import ThemeContext from "./ThemeContext";
+import store from "./store";
 
 const App = () => {
-  const theme = useState("darkblue");
   return (
     <React.StrictMode>
-      <ThemeContext.Provider value={theme}>
+      <Provider store={store}>
         <div>
           <header>
             <Link to="/">Adopt Me!</Link>
@@ -19,7 +19,7 @@ const App = () => {
             <Details path="/details/:id" />
           </Router>
         </div>
-      </ThemeContext.Provider>
+      </Provider>
     </React.StrictMode>
   );
 };
